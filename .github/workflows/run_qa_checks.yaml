@@ -1,0 +1,11 @@
+name: Run QA Checks and Tests
+
+on:
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  qa-checks:
+    uses: ./.github/workflows/qa_checks.yaml
+    secrets: inherit
