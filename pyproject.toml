@@ -1,0 +1,337 @@
+# ==== Poetry ====
+[tool.poetry]
+name = "psqache"
+version = "0.1.0"
+description = ""
+authors = ["Adriano Mochama <adriano@ibuqa.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiosql = "^12.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+pytest-memray = "^1.7.0"
+pytest-xdist = "^3.6.1"
+pytest-asyncio = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+# ==== Ruff ====
+[tool.ruff]
+# Enable/Disable application of unsafe fixes.
+unsafe-fixes = false
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "tests",
+    "*/migrations/*.py",
+    "staticfiles/*",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Pythin 3.11
+target-version = "py312"
+
+[tool.ruff.lint]
+# Enable opt-in preview mode
+preview = true
+
+# Enable rules
+select = [
+    # pycodestyle
+    "E",
+    "W",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # pydocstyle
+    "D",
+    # Pep 8 naming
+    "N",
+    # flake8-2020
+    "YTT",
+    # flake8-async
+    "ASYNC",
+    # flake8-bandit
+    "S",
+    # flake8-blind-except
+    "BLE",
+    # flake8-boolean-trap
+    "FBT",
+    # flake8-builtins
+    "A",
+    # flake8-commas
+    "COM",
+    # flake8-comprehensions
+    "C4",
+    # flake8-datetimez
+    "DTZ",
+    # flake8-debugger
+    "T10",
+    # flake8-django
+    "DJ",
+    # flake8-errmsg
+    "EM",
+    # flake8-executable
+    "EXE",
+    # flake8-future-annotations
+    "FA",
+    # flake8-implicit-str-concat
+    "ISC",
+    # flake8-import-conventions
+    "ICN",
+    # flake8-logging
+    "LOG",
+    # flake8-logging-format
+    "G",
+    # flake8-no-pep420
+    "INP",
+    # flake8-pie
+    "PIE",
+    # flake8-print
+    "T20",
+    # flake8-pyi
+    "PYI",
+    # flake8-pytest-style
+    "PT",
+    # flake8-quotes
+    "Q",
+    # flake8-raise
+    "RSE",
+    # flake8-return
+    "RET",
+    # flake8-self
+    "SLF",
+    # flake8-slots
+    "SLOT",
+    # flake8-tidy-imports
+    "TID",
+    # flake8-type-checking
+    "TCH",
+    # flake8-gettext
+    "INT",
+    # flake8-unused-arguments
+    "ARG",
+    # flake8-use-pathlib
+    "PTH",
+    # flake8-todos
+    "TD",
+    # flake8-fixme
+    "FIX",
+    # eradicate
+    "ERA",
+    # pygrep-hooks
+    "PGH",
+    # Pylint
+    "PL",
+    # tryceratops
+    "TRY",
+    # flynt
+    "FLY",
+    # Perflint
+    "PERF",
+    # refurb
+    "FURB",
+    # pydoclint
+    "DOC",
+    # Ruff-specific rules
+    "RUF",
+]
+
+# Ignore rules
+ignore = [
+    "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+    "SIM102", # Sometimes it's better to nest
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Enable opt-in preview mode
+preview = true
+
+# Ignore
+exclude = ["COM812", "ISC001"]
+
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
+
+
+[tool.ruff.lint.isort]
+# Forces all from imports to appear on their own line.
+force-single-line = true
+
+[tool.ruff.lint.pydocstyle]
+# Whether to use Google-style, NumPy-style conventions, or the PEP 257 default.
+convention = "google"
+
+[tool.ruff.lint.pylint]
+# Maximum number of arguments allowed for a function or method definition
+max-args = 5
+
+
+# ==== Mypy ====
+[tool.mypy]
+# Specifies the Python version used to parse and check the target program.
+python_version = "3.12"
+# Type-checks the interior of functions without type annotations.
+check_untyped_defs = true
+# Suppresses error messages about imports that cannot be resolved.
+ignore_missing_imports = true
+# Warns about unneeded # type: ignore comments.
+warn_unused_ignores = true
+# Warns about casting an expression to its inferred type.
+warn_redundant_casts = true
+# Warns about per-module sections in the config file that
+# do not match any files processed
+warn_unused_configs = true
+# Disallows defining functions without type annotations or
+# with incomplete type annotations
+disallow_untyped_defs = true
+# Shows a warning when encountering any code inferred to be
+# unreachable or redundant after performing type analysis.
+warn_unreachable = true
+# Shows a warning when returning a value with type Any from a
+# function declared with a non- Any return type.
+warn_return_any = true
+# Shows errors for missing return statements on some execution paths.
+warn_no_return = true
+# A comma-separated list of mypy plugins.
+plugins = []
+
+[[tool.mypy.overrides]]
+# Migrations should not produce any errors:
+module = "*.migrations.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+# Tests should not produce any errors:
+module = "tests.*"
+ignore_errors = true
+
+# ==== Pytest ====
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=psqache --cov-fail-under=100 --cov-report=html --cov-report=term-missing --durations=100 -n auto --memray -v"
+python_files = ["tests.py", "test_*.py"]
+log_cli = 1
+log_cli_level = "ERROR"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+
+# ==== Coverage ====
+[tool.coverage.run]
+branch = true
+omit = ["*/migrations/*", "*/schemas/*"]
+plugins = []
+disable_warnings = ["include-ignored"]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+
+    # Exclude protocol methods implementations i.e '...', they aren't run:
+    "^\\s*\\.\\.\\.$",
+
+    # Exclude TYPE_CHECKING blocks
+    "if TYPE_CHECKING:",
+]
+
+[tool.coverage.html]
+directory = "coverage"
+
+# === SQLfluff ===
+[tool.sqlfluff.core]
+dialect = "postgres"
+templater = "jinja"
+sql_file_exts = ".sql"

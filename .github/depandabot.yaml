@@ -1,0 +1,16 @@
+# Dependabot Version
+version: 2
+
+# Update Schedule
+updates:
+  # Update Schedule for Python
+  - package-ecosystem: "poetry"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Update Schedule for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
