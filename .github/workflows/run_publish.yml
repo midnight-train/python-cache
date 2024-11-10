@@ -1,0 +1,12 @@
+name: Run Upload Python Package to PyPI when a Release is Created
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: ./.github/workflows/publish.yml
+    secrets: inherit

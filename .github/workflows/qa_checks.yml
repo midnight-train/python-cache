@@ -7,22 +7,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Install and Run Pre-commit
         uses: pre-commit/action@v3.0.1
 
   test-checks:
+    needs: pre-commit-checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
