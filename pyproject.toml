@@ -1,10 +1,11 @@
 # ==== Poetry ====
 [tool.poetry]
 name = "psqache"
-version = "0.1.0"
-description = ""
-authors = ["Adriano Mochama <adriano@ibuqa.io>"]
+version = "0.0.0"
+description = "Fast Caching Library For Python/asyncio"
+authors = ["Adriano Mochama <adriano@ibuqa.io>","Brian Njuguna <njugunabrian31@gmail.com>"]
 readme = "README.md"
+homepage = "https://github.com/midnight-train/python-cache"
 
 [tool.poetry.dependencies]
 python = "^3.12"
