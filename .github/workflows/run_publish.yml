@@ -10,3 +10,5 @@ jobs:
   publish:
     uses: ./.github/workflows/publish.yml
     secrets: inherit
+    permissions:
+      id-token: write
