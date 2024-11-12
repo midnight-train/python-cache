@@ -2,14 +2,7 @@
 
 import pytest
 
-from tests.mocks import MockCache
 from psqache.queries import Queries
-
-
-@pytest.fixture
-def cache():
-    """Fixture for the cache object."""
-    return MockCache()
 
 
 @pytest.fixture

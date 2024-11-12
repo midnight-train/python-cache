@@ -1,10 +1,9 @@
-name: Upload Python Package to PyPI when a Release is Created
-
+name: Release It
 
 on: [workflow_call]
 
 env:
-  PYPI_API_TOKEN: '${{ secrets.PYPI_API_TOKEN }}'
+  PYPI_API_TOKEN: "${{ secrets.PYPI_API_TOKEN }}"
 
 jobs:
   pypi-publish:

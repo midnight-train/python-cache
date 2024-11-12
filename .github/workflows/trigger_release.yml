@@ -1,0 +1,19 @@
+name: Run QA Checks and Release
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+jobs:
+  qa-checks:
+    uses: ./.github/workflows/qa_checks.yml
+    secrets: inherit
+
+  release:
+    needs: qa-checks
+    uses: ./.github/workflows/release.yml
+    secrets: inherit
+    permissions:
+      id-token: write

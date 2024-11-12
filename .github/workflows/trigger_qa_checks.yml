@@ -3,6 +3,8 @@ name: Run QA Checks and Tests
 on:
   push:
 
+  merge_group:
+
   workflow_dispatch:
 
 jobs:

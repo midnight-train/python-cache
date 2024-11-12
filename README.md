@@ -6,7 +6,7 @@ A blazing-fast Cache Client Library for Python/asyncio powered by PostgreSQL
 ![Python](https://img.shields.io/pypi/pyversions/psqache)
 ![License](https://img.shields.io/github/license/midnight-train/python-cache)
 
-## The Problem
+## Why?
 
 It's the year 2099, and yes, we're still building high-performance backends. You'd think by now we'd have some universal, one-size-fits-all infrastructure solution, but no.
 
@@ -44,7 +44,7 @@ What if your friendly, reliable PostgreSQL could handle both persistence AND cac
 - 🔄 **Async First**: Built for Python/asyncio with concurrency in mind
 - 🛠 **Simple API**: Familiar cache interface (`get`, `set`, `delete`)
 - ⏰ **TTL Support**: Automatic key expiration
-- 🔍 **JSONB Storage**: Native support for complex data structures
+- 🔍 **Multi-Backend Support**: PostgreSQL(default), Redis, MySQL, MongoDB, In-memory
 - 🎯 **Type Safe**: Full typing support for modern Python
 - 📊 **Monitoring**: Built-in metrics for cache operations
 
@@ -83,7 +83,18 @@ TODO
 
 ## Roadmap
 
-TODO
+- [x] Core cache operations (get, set, delete)
+- [x] PostgreSQL cache backend
+- [ ] Decorator interface for easy function caching
+- [ ] Additional Backends
+  - [ ] In-memory
+  - [ ] Redis
+  - [ ] MySQL
+  - [ ] MongoDB
+- [ ] Future Features
+  - [ ] Circuit breaker pattern
+  - [ ] Cache monitoring and metrics
+  - [ ] Cache analytics
 
 ---
 

@@ -3,13 +3,18 @@
 name = "psqache"
 version = "0.0.0"
 description = "Fast Caching Library For Python/asyncio"
-authors = ["Adriano Mochama <adriano@ibuqa.io>","Brian Njuguna <njugunabrian31@gmail.com>"]
+authors = [
+    "Adriano Mochama <adriano@ibuqa.io>",
+    "Brian Njuguna <njugunabrian31@gmail.com>",
+]
 readme = "README.md"
 homepage = "https://github.com/midnight-train/python-cache"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 aiosql = "^12.2"
+asyncpg = "^0.30.0"
+asgiref = "^3.8.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -19,6 +24,7 @@ pytest-cov = "^6.0.0"
 pytest-memray = "^1.7.0"
 pytest-xdist = "^3.6.1"
 pytest-asyncio = "^0.24.0"
+pytest-sugar = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -8,15 +8,16 @@ behavior.
 
 from typing import Any
 from typing import Protocol
+from typing import runtime_checkable
 
 
-class CacheProtocol(Protocol):
-    """Interface for cache classes.
+@runtime_checkable
+class ICache(Protocol):
+    """Interface for cache engine implementations.
 
-    This interface defines the expected behavior for cache classes, including methods
+    This interface defines the expected behavior for cache engines, including methods
     for getting, setting, deleting, and checking the existence of cache entries, both
-    synchronously and asynchronously. Implementing classes should provide concrete
-    implementations for these methods to interact with the cache storage.
+    synchronously and asynchronously.
 
     Methods:
         aget(key: str) -> Optional[Any]: Asynchronously get the value for the given key.
@@ -126,5 +127,71 @@ class CacheProtocol(Protocol):
 
         Returns:
             bool: True if the key is in the cache, False otherwise.
+        """
+        ...
+
+
+@runtime_checkable
+class ICacheBackend(Protocol):
+    """Interface for cache backends implementations.
+
+    This interface defines the expected behavior for backend classes, including
+    methods for getting, setting, deleting, and checking the existence of entries
+    asynchronously.
+
+    Methods:
+        get(key: str) -> Optional[dict]: Get the value for the given key.
+        set(key: str, value: dict, ttl: int) -> None: Set the value for the given key.
+        delete(key: str) -> None: Delete the value for the given key.
+        clear() -> None: Remove all the entries in the repository.
+        cleanup() -> None: Remove the expired entries in the repository.
+        has(key: str) -> bool: Check if the given key is in the repository.
+    """
+
+    async def get(self, key: str) -> dict | None:
+        """Retrieve a cache entry by key.
+
+        Args:
+            key: The key to retrieve.
+
+        Returns:
+            The value associated with the key, or None if not found or expired.
+        """
+        ...
+
+    async def set(self, key: str, value: dict, ttl: int) -> None:
+        """Set or update a cache entry with a time-to-live.
+
+        Args:
+            key: The key to set.
+            value: The value to associate with the key.
+            ttl: Time-to-live in seconds for the entry.
+        """
+        ...
+
+    async def delete(self, key: str) -> None:
+        """Delete a cache entry by key.
+
+        Args:
+            key: The key to delete.
+        """
+        ...
+
+    async def clear(self) -> None:
+        """Clear all cache entries."""
+        ...
+
+    async def cleanup(self) -> None:
+        """Delete all expired cache entries."""
+        ...
+
+    async def has(self, key: str) -> bool:
+        """Check if a cache entry exists and is not expired.
+
+        Args:
+            key: The key to check.
+
+        Returns:
+            True if the entry exists and is not expired, otherwise False.
         """
         ...
