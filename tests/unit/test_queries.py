@@ -7,7 +7,7 @@ def test_create_psqache_table(queries):
     assert hasattr(queries, "create_psqache_table")
     assert "create_psqache_table" in queries._available_queries
     assert queries.create_psqache_table.sql.startswith(
-        "CREATE UNLOGGED TABLE IF NOT EXISTS psqache"
+        "CREATE UNLOGGED TABLE IF NOT EXISTS psqache",
     )
 
 

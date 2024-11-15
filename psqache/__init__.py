@@ -19,3 +19,7 @@ reduce the costs associated with deploying and maintaining these services.
 
 The package provides a way to cache data using a PostgreSQL database.
 """
+
+from psqache.caches import PsQache
+
+__all__ = ["PsQache"]

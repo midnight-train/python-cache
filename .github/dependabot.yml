@@ -4,7 +4,7 @@ version: 2
 # Update Schedule
 updates:
   # Update Schedule for Python
-  - package-ecosystem: "poetry"
+  - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
