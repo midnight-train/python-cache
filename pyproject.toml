@@ -12,7 +12,7 @@ homepage = "https://github.com/midnight-train/python-cache"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-aiosql = "^12.2"
+aiosql = ">=12.2,<14.0"
 asyncpg = "^0.30.0"
 asgiref = "^3.8.1"
 
